@@ -15,8 +15,8 @@ struct Section {
 
 class PortalViewController: UIViewController, UITableViewDelegate {
     
-    weak var delegate: PortalViewControllerDelegate?
     @IBOutlet weak var portalTable: UITableView!
+    weak var delegate: PortalViewControllerDelegate?
     var currencyArray: [Section] = []
     
     override func viewDidLoad() {
