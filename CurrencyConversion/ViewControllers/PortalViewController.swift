@@ -66,6 +66,8 @@ extension PortalViewController: UITableViewDataSource {
         if arrContext.count == 2 {
             cell.abbr.text = arrContext[1]
             cell.currencyName.text = arrContext[0]
+            let img = UIImage(named: "\(String(cell.abbr.text!.prefix(2).lowercased())).png") ?? UIImage(named: "unknown.png")
+            cell.flag.image = img
         }
         return cell
     }
