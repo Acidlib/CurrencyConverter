@@ -20,6 +20,7 @@
 		5F0E74BB237510B800F423C6 /* APIManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0E74BA237510B800F423C6 /* APIManagerProtocol.swift */; };
 		5F0E74C123751BE500F423C6 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0E74C023751BE500F423C6 /* MainViewController.swift */; };
 		5F0E74C323751C1400F423C6 /* PortalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0E74C223751C1400F423C6 /* PortalViewController.swift */; };
+		5F0E74C523753C7A00F423C6 /* CCStoryboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0E74C423753C7A00F423C6 /* CCStoryboard.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,7 @@
 		5F0E74BA237510B800F423C6 /* APIManagerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManagerProtocol.swift; sourceTree = "<group>"; };
 		5F0E74C023751BE500F423C6 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		5F0E74C223751C1400F423C6 /* PortalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortalViewController.swift; sourceTree = "<group>"; };
+		5F0E74C423753C7A00F423C6 /* CCStoryboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CCStoryboard.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +129,7 @@
 		5F0E748923750D9900F423C6 /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
+				5F0E74C423753C7A00F423C6 /* CCStoryboard.swift */,
 				5F0E748A23750D9900F423C6 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
@@ -312,6 +315,7 @@
 				5F0E748223750D9600F423C6 /* AppDelegate.swift in Sources */,
 				5F0E748423750D9600F423C6 /* SceneDelegate.swift in Sources */,
 				5F0E74BB237510B800F423C6 /* APIManagerProtocol.swift in Sources */,
+				5F0E74C523753C7A00F423C6 /* CCStoryboard.swift in Sources */,
 				5F0E74C323751C1400F423C6 /* PortalViewController.swift in Sources */,
 				5F0E748623750D9600F423C6 /* ContentView.swift in Sources */,
 			);

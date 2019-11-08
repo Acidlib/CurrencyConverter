@@ -8,9 +8,80 @@
 
 import UIKit
 
-class MainViewController: UIViewController {
+class MainViewController: UIViewController, PortalViewControllerDelegate {
+
+    var portalMask: UIView = UIView()
+    var panGesture: UIPanGestureRecognizer = UIPanGestureRecognizer()
+    var portalViewController: PortalViewController = PortalViewController()
+    var touchPoint: CGPoint = CGPoint()
+    var preTouchPoint: CGPoint = CGPoint()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.loadPortalMenu()
+        self.view.backgroundColor = UIColor.yellow
+    }
+    
+    func loadPortalMenu() {
+        portalMask = UIView(frame: self.view.bounds)
+        portalMask.backgroundColor = UIColor.init(white: 0, alpha: 0.7)
+        portalMask.alpha = 0
+        self.view.addSubview(portalMask)
+        
+        let gr = UITapGestureRecognizer(target: self, action: #selector(handlePan(gr:)))
+        portalMask.addGestureRecognizer(gr)
+        portalViewController = CCStoryboard.viewController(identifier: "PortalViewController") as! PortalViewController
+        portalViewController.view.frame = CGRect(x: -70, y: 0, width: 70, height: self.view.frame.size.height)
+        self.view.addSubview(portalViewController.view)
+        self.addChild(portalViewController)
+        portalViewController.didMove(toParent: self)
+    }
+    
+    func isPortalOpened() -> (Bool) {
+        return portalViewController.view.frame.origin.x == 0;
+    }
+
+    @objc func handlePan(gr: UIPanGestureRecognizer) {
+        switch gr.state {
+        case .began:
+            touchPoint = preTouchPoint
+            touchPoint = gr.location(in: self.view)
+            break
+        case .changed:
+            preTouchPoint = touchPoint
+            touchPoint = gr.location(in: self.view)
+            let deltaX = touchPoint.x - preTouchPoint.x
+            
+            let view = portalViewController.view
+            if var frame = view?.frame {
+                var x = (frame.origin.x) + deltaX
+                if x >= 0 { x = 0 }
+                else if x <= -(frame.size.width) { x = -frame.size.width }
+                
+                if frame.origin.x != x {
+                    frame.origin.x = x
+                    frame.size.height = UIScreen.main.bounds.size.height
+                    view?.frame = frame
+                    portalMask.alpha = 1 - (-x / (frame.size.width))
+                }
+            }
+            break
+        case .ended:
+            let deltaX = touchPoint.x - preTouchPoint.x
+            var show: Bool
+            if abs(deltaX) > 5 {
+                show = deltaX > 0
+            } else {
+                show = portalViewController.view.frame.origin.x > portalViewController.view.frame.size.width / 2
+            }
+            UIView.animate(withDuration: 0.2, animations: {
+                self.portalViewController.view.frame.origin.x = show ? 0 : -(self.portalViewController.view.frame.size.width)
+                self.portalViewController.view.frame.size.height = UIScreen.main.bounds.size.height
+                self.portalMask.alpha = show ? 1 : 0;
+            })
+            break
+        default:
+            break
+        }
     }
 }
