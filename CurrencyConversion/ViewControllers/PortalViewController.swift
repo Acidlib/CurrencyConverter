@@ -18,6 +18,7 @@ class PortalViewController: UIViewController, UITableViewDelegate {
     @IBOutlet weak var portalTable: UITableView!
     weak var delegate: PortalViewControllerDelegate?
     var currencyArray: [Section] = []
+    var selectedArray: [String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -68,7 +69,9 @@ extension PortalViewController: UITableViewDataSource {
             cell.currencyName.text = arrContext[0]
             let img = UIImage(named: "\(String(cell.abbr.text!.prefix(2).lowercased())).png") ?? UIImage(named: "unknown.png")
             cell.flag.image = img
+            cell.check.image = selectedArray.contains("\(cell.currencyName.text!),\(String(describing: cell.abbr.text!))") ? UIImage(named: "checked.png") : UIImage(named: "unchecked.png")
         }
+        cell.selectionStyle = .none
         return cell
     }
     
@@ -84,6 +87,17 @@ extension PortalViewController: UITableViewDataSource {
         return currencyArray[section].alphabet
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let selectedCurrency = currencyArray[indexPath.section].countries[indexPath.row]
+        if selectedArray.contains(selectedCurrency) {
+            if let index = selectedArray.firstIndex(where: { $0 == selectedCurrency }) {
+                selectedArray.remove(at: index)
+            }
+        } else {
+            selectedArray.append(selectedCurrency)
+        }
+        self.portalTable.reloadData()
+    }
 }
 
 class PortalCurrencyCell: UITableViewCell {
@@ -96,4 +110,3 @@ class PortalCurrencyCell: UITableViewCell {
 protocol PortalViewControllerDelegate: class {
     func didSelectCurrency(array: [String], timestamp: Date)
 }
-

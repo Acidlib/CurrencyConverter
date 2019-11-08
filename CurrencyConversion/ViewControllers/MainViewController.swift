@@ -97,6 +97,11 @@ class MainViewController: UIViewController, PortalViewControllerDelegate {
             self.portalMask.alpha = show ? 1 : 0;
         }
     }
+    
+    @IBAction func didSelectMenu(_ sender: Any) {
+        self.togglePortal()
+    }
+    
 }
 
 extension MainViewController {

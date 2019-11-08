@@ -16,7 +16,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="P5q-lX-7tU">
-                                <rect key="frame" x="20" y="64" width="374" height="778"/>
+                                <rect key="frame" x="20" y="124" width="374" height="718"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="80" id="7XX-vX-ha4">
@@ -66,12 +66,26 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vs5-Sf-dR5">
+                                <rect key="frame" x="20" y="44" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="aXn-QH-4Rk"/>
+                                    <constraint firstAttribute="width" constant="50" id="nEK-OZ-sUH"/>
+                                </constraints>
+                                <inset key="contentEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
+                                <state key="normal" image="menu"/>
+                                <connections>
+                                    <action selector="didSelectMenu:" destination="01J-lp-oVM" eventType="touchUpInside" id="al7-Zl-8VK"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="P5q-lX-7tU" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="6nu-uc-4eG"/>
                             <constraint firstItem="P5q-lX-7tU" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" constant="-20" id="L4x-L6-YB6"/>
                             <constraint firstItem="P5q-lX-7tU" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="QXN-mD-wrj"/>
+                            <constraint firstItem="vs5-Sf-dR5" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="nck-bH-dni"/>
+                            <constraint firstItem="vs5-Sf-dR5" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="quN-ro-W9u"/>
+                            <constraint firstItem="P5q-lX-7tU" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="80" id="rgY-1n-TeS"/>
                             <constraint firstItem="P5q-lX-7tU" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" constant="-20" id="ziB-Xx-6E9"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -79,7 +93,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="53" y="375"/>
+            <point key="canvasLocation" x="52.173913043478265" y="375"/>
         </scene>
         <!--Portal View Controller-->
         <scene sceneID="d9k-Jw-QO1">
@@ -110,10 +124,10 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="QZt-oY-Yf0">
-                                                    <rect key="frame" x="319" y="-3.5" width="35" height="50.5"/>
+                                                    <rect key="frame" x="336" y="-3.5" width="18" height="50.5"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" relation="lessThanOrEqual" constant="35" id="9MV-6b-KZ1"/>
-                                                        <constraint firstAttribute="width" constant="35" id="QGj-3v-adZ"/>
+                                                        <constraint firstAttribute="width" constant="18" id="QGj-3v-adZ"/>
                                                     </constraints>
                                                 </imageView>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="uhO-5q-6tY">
@@ -171,4 +185,7 @@
             <point key="canvasLocation" x="834.78260869565224" y="375"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="menu" width="64" height="64"/>
+    </resources>
 </document>
