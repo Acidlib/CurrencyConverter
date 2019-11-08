@@ -97,6 +97,7 @@ extension PortalViewController: UITableViewDataSource {
             selectedArray.append(selectedCurrency)
         }
         self.portalTable.reloadSections([indexPath.section], with: .none)
+        self.delegate?.didSelectCurrency(array: selectedArray, timestamp: Date())
     }
 }
 

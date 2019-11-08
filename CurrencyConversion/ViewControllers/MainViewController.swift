@@ -8,14 +8,17 @@
 
 import UIKit
 
-class MainViewController: UIViewController, PortalViewControllerDelegate {
+class MainViewController: UIViewController {
 
     var portalMask: UIView = UIView()
     var panGesture: UIPanGestureRecognizer = UIPanGestureRecognizer()
     var portalViewController: PortalViewController = PortalViewController()
     var touchPoint: CGPoint = CGPoint()
     var preTouchPoint: CGPoint = CGPoint()
-
+    var selectedArray: [String] = []
+    
+    @IBOutlet weak var mainTable: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.loadPortalMenu()
@@ -104,8 +107,9 @@ class MainViewController: UIViewController, PortalViewControllerDelegate {
     
 }
 
-extension MainViewController {
+extension MainViewController: PortalViewControllerDelegate {
     func didSelectCurrency(array: [String], timestamp: Date) {
-        
+        self.selectedArray = array
+        mainTable.reloadData()
     }
 }

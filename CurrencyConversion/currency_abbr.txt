@@ -148,3 +148,4 @@ CFA Franc BCEAO,XOF
 CFP Franc,XPF
 Yemen Rial,YER
 South Africa Rand,ZAR
+United State,USD
