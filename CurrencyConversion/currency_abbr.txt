@@ -1,0 +1,150 @@
+United Arab Emirates Dirham,AED
+Afghanistan Afghani,AFN
+Albania Lek,ALL
+Armenia Dram,AMD
+NL Antilles Guilder,ANG
+Angola Kwanza,AOA
+Argentina Peso,ARS
+Australia Dollar,AUD
+Aruba Florin,AWG
+Azerbaijan New Manat,AZN
+Bosnia Mark,BAM
+Barbados Dollar,BBD
+Bangladesh Taka,BDT
+Bulgaria Lev,BGN
+Bahrain Dinar,BHD
+Burundi Franc,BIF
+Bermuda Dollar,BMD
+Brunei Dollar,BND
+Bolivia Boliviano,BOB
+Brazil Real,BRL
+Bahamas Dollar,BSD
+Bhutan Ngultrum,BTN
+Botswana Pula,BWP
+Belarus Ruble,BYR
+Belize Dollar,BZD
+Canada Dollar,CAD
+Congo Franc,CDF
+Switzerland Franc,CHF
+Chili Peso,CLP
+China Yuan/Renminbi,CNY
+Colombia Peso,COP
+Costa Rica Colon,CRC
+Cuba Convertible Peso,CUC
+Cuba Peso,CUP
+Cape Verde Escudo,CVE
+Czech Koruna,CZK
+Djibouti Franc,DJF
+Denmark Krone,DKK
+Dominican Republich Peso,DOP
+Algeria Dinar,DZD
+Egypt Pound,EGP
+Ethiopia Birr,ETB
+Euro,EUR
+Fiji Dollar,FJD
+Falkland Islands Pound,FKP
+Great Britain Pound,GBP
+Georgia Lari,GEL
+Ghana New Cedi,GHS
+Gibraltar Pound,GIP
+Gambia Dalasi,GMD
+Guinea Franc,GNF
+Guatemala Quetzal,GTQ
+Guyana Dollar,GYD
+Hong Kong Dollar,HKD
+Honduras Lempira,HNL
+Croatia Kuna,HRK
+Haiti Gourde,HTG
+Hungary Forint,HUF
+Indonesia Rupiah,IDR
+Israel New Shekel,ILS
+India Rupee,INR
+Iraq Dinar,IQD
+Iran Rial,IRR
+Iceland Krona,ISK
+Jamaica Dollar,JMD
+Jordan Dinar,JOD
+Japan Yen,JPY
+Kenya Shilling,KES
+Kyrgyzstan Som,KGS
+Cambodia Riel,KHR
+Comoros Franc,KMF
+North Korea Won,KPW
+South Korea Won,KRW
+Kuwait Dinar,KWD
+Cayman Islands Dollar,KYD
+Kazakhstan Tenge,KZT
+Laos Kip,LAK
+Lebanon Pound,LBP
+Sri Lanka Rupee,LKR
+Liberia Dollar,LRD
+Lesotho Loti,LSL
+Lithuania Litas,LTL
+Latvia Lats,LVL 
+Libya Dinar,LYD
+Morocco Dirham,MAD
+Moldova Leu,MDL
+Malagasy Ariary,MGA
+Macedonia Denar,MKD
+Myanmar Kyat,MMK
+Mongolia Tugrik,MNT
+Macau Pataca,MOP
+Mauritania Ouguiya,MRO
+Mauritius Rupee,MUR
+Maldives Rufiyaa,MVR
+Malawi Kwacha,MWK
+Mexico Peso,MXN
+Malaysia Ringgit,MYR
+Mozambique New Metical,MZN
+Namibia Dollar,NAD
+Nigeria Naira,NGN
+Nicaragua Cordoba Oro,NIO
+Norway Kroner,NOK
+Nepal Rupee,NPR
+New Zealand Dollar,NZD
+Oman Rial,OMR
+Panama Balboa,PAB
+Peru Nuevo Sol,PEN
+Papua New Guinea Kina,PGK
+Philippines Peso,PHP
+Pakistan Rupee,PKR
+Poland Zloty,PLN
+Paraguay Guarani,PYG
+Qatar Rial,QAR
+Romania New Lei,RON
+Serbia Dinar,RSD
+Russia Rouble,RUB
+Rwanda Franc,RWF
+Saudi Arabia Riyal,SAR
+Solomon Islands Dollar,SBD
+Seychelles Rupee,SCR
+Sudan Pound,SDG
+Sweden Krona,SEK
+Singapore Dollar,SGD
+St Helena Pound,SHP
+Sierra Leone Leone,SLL
+Somali Shilling,SOS
+Suriname Dollar,SRD
+Sao Tome/Principe Dobra,STD
+El Salvador Colon,SVC
+Syria Pound,SYP,
+Swaziland Lilangeni,SZL
+Thailand Baht,THB
+Tunisia Dinar,TND
+Tonga Pa'anga,TOP
+Turkish New Lira,TRY
+Trinidad/Tobago Dollar,TTD
+Taiwan Dollar,TWD
+Tanzania Shilling,TZS
+Ukraine Hryvnia,UAH
+Uganda Shilling,UGX
+Uruguay Peso,UYU
+Vietnam Dong,VND
+Vanuatu Vatu,VUV
+Samoa Tala,WST
+CFA Franc BEAC,XAF
+East Caribbean Dollar,XCD
+CFA Franc BCEAO,XOF
+CFP Franc,XPF
+Yemen Rial,YER
+South Africa Rand,ZAR

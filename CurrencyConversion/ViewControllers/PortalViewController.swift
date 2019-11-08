@@ -8,9 +8,16 @@
 
 import UIKit
 
-class PortalViewController: UIViewController {
+struct Section {
+    let alphabet : String
+    let countries : [String]
+}
+
+class PortalViewController: UIViewController, UITableViewDelegate {
     
     weak var delegate: PortalViewControllerDelegate?
+    @IBOutlet weak var portalTable: UITableView!
+    var currencyArray: [Section] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,10 +29,69 @@ class PortalViewController: UIViewController {
     }
     
     func loadTableView() {
+        portalTable.delegate = self
+        portalTable.dataSource = self
+        portalTable.allowsSelection = true
         
+        let path = Bundle.main.path(forResource: "currency_abbr", ofType: "txt")
+        if let path = path {
+            var contents: String
+            do {
+                contents = try NSString(contentsOfFile: path, encoding: String.Encoding.utf8.rawValue) as String
+            } catch {
+                contents = ""
+            }
+            
+            let array = contents.components(separatedBy: "\n")
+            let groupedDic = Dictionary(grouping: array, by: {String($0.prefix(1))})
+            let keys = groupedDic.keys.sorted()
+            currencyArray = keys.map {
+                Section(alphabet: $0, countries: (groupedDic[$0]?.sorted())!)
+            }
+        }
     }
+}
+
+extension PortalViewController: UITableViewDataSource {
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return currencyArray.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cellID = "portalCurrencyCell"
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath) as! PortalCurrencyCell
+        let section = currencyArray[indexPath.section]
+        let arrContext = section.countries[indexPath.row].components(separatedBy: ",")
+        if arrContext.count == 2 {
+            cell.abbr.text = arrContext[1]
+            cell.currencyName.text = arrContext[0]
+        }
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return currencyArray[section].countries.count
+    }
+    
+    func sectionIndexTitles(for tableView: UITableView) -> [String]? {
+        return currencyArray.map{$0.alphabet}
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return currencyArray[section].alphabet
+    }
+    
+}
+
+class PortalCurrencyCell: UITableViewCell {
+    @IBOutlet weak var abbr: UILabel!
+    @IBOutlet weak var check: UIImageView!
+    @IBOutlet weak var flag: UIImageView!
+    @IBOutlet weak var currencyName: UILabel!
 }
 
 protocol PortalViewControllerDelegate: class {
     func didSelectCurrency(array: [String], timestamp: Date)
 }
+

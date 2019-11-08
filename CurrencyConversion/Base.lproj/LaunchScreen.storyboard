@@ -97,7 +97,7 @@
                                 <rect key="frame" x="20" y="100" width="374" height="742"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="kvo-iH-01x">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="portalCurrencyCell" id="kvo-iH-01x" customClass="PortalCurrencyCell" customModule="CurrencyConversion" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="55.5" width="374" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="kvo-iH-01x" id="WCd-e2-1b7">
@@ -144,6 +144,12 @@
                                                 <constraint firstItem="j4T-pd-yOU" firstAttribute="centerY" secondItem="Rkm-yP-zKT" secondAttribute="centerY" id="yT9-GN-0nI"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="abbr" destination="Rkm-yP-zKT" id="RIh-Sv-xWn"/>
+                                            <outlet property="check" destination="QZt-oY-Yf0" id="OH6-hr-bxB"/>
+                                            <outlet property="currencyName" destination="j4T-pd-yOU" id="mkS-7w-M2a"/>
+                                            <outlet property="flag" destination="uhO-5q-6tY" id="Mpg-WF-PM2"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -160,6 +166,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="SKL-kW-ysM"/>
                     </view>
+                    <connections>
+                        <outlet property="portalTable" destination="eYX-My-QeF" id="DoK-sG-TIM"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="07V-iE-NJT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

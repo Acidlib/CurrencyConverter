@@ -21,6 +21,7 @@
 		5F0E74C123751BE500F423C6 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0E74C023751BE500F423C6 /* MainViewController.swift */; };
 		5F0E74C323751C1400F423C6 /* PortalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0E74C223751C1400F423C6 /* PortalViewController.swift */; };
 		5F0E74C523753C7A00F423C6 /* CCStoryboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0E74C423753C7A00F423C6 /* CCStoryboard.swift */; };
+		5F7C709023756EB800FBFBB0 /* currency_abbr.txt in Resources */ = {isa = PBXBuildFile; fileRef = 5F7C708F23756EB800FBFBB0 /* currency_abbr.txt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +62,7 @@
 		5F0E74C023751BE500F423C6 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		5F0E74C223751C1400F423C6 /* PortalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortalViewController.swift; sourceTree = "<group>"; };
 		5F0E74C423753C7A00F423C6 /* CCStoryboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CCStoryboard.swift; sourceTree = "<group>"; };
+		5F7C708F23756EB800FBFBB0 /* currency_abbr.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = currency_abbr.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +124,7 @@
 				5F0E748F23750D9900F423C6 /* Info.plist */,
 				5F0E748923750D9900F423C6 /* Preview Content */,
 				5F0E74B723750FA900F423C6 /* currencyHistory.xcdatamodeld */,
+				5F7C708F23756EB800FBFBB0 /* currency_abbr.txt */,
 			);
 			path = CurrencyConversion;
 			sourceTree = "<group>";
@@ -282,6 +285,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5F7C709023756EB800FBFBB0 /* currency_abbr.txt in Resources */,
 				5F0E748E23750D9900F423C6 /* LaunchScreen.storyboard in Resources */,
 				5F0E748B23750D9900F423C6 /* Preview Assets.xcassets in Resources */,
 				5F0E748823750D9900F423C6 /* Assets.xcassets in Resources */,
