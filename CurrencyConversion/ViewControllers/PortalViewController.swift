@@ -10,22 +10,22 @@ import UIKit
 
 class PortalViewController: UIViewController {
     
-    var collectionView: UICollectionView = UICollectionView()
+    weak var delegate: PortalViewControllerDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.loadCollectionView()
-        self.view.backgroundColor = UIColor.green
+        self.loadTableView()
     }
 
     override func didMove(toParent parent: UIViewController?) {
         
     }
     
-    func loadCollectionView() {
+    func loadTableView() {
         
     }
 }
 
 protocol PortalViewControllerDelegate: class {
+    func didSelectCurrency(array: [String], timestamp: Date)
 }

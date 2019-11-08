@@ -19,19 +19,24 @@ class MainViewController: UIViewController, PortalViewControllerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.loadPortalMenu()
-        self.view.backgroundColor = UIColor.yellow
+        self.view.isUserInteractionEnabled = true
+        panGesture = UIPanGestureRecognizer(target: self, action: #selector(handlePan(gr:)))
+        self.view.addGestureRecognizer(panGesture)
     }
     
     func loadPortalMenu() {
         portalMask = UIView(frame: self.view.bounds)
         portalMask.backgroundColor = UIColor.init(white: 0, alpha: 0.7)
         portalMask.alpha = 0
+        portalMask.isUserInteractionEnabled = true
         self.view.addSubview(portalMask)
         
-        let gr = UITapGestureRecognizer(target: self, action: #selector(handlePan(gr:)))
+        let gr = UITapGestureRecognizer(target: self, action: #selector(togglePortal))
         portalMask.addGestureRecognizer(gr)
         portalViewController = CCStoryboard.viewController(identifier: "PortalViewController") as! PortalViewController
-        portalViewController.view.frame = CGRect(x: -70, y: 0, width: 70, height: self.view.frame.size.height)
+        let width = self.view.frame.size.width - 70
+        portalViewController.view.frame = CGRect(x: -width, y: 0, width: width, height: self.view.frame.size.height)
+        portalViewController.delegate = self
         self.view.addSubview(portalViewController.view)
         self.addChild(portalViewController)
         portalViewController.didMove(toParent: self)
@@ -83,5 +88,19 @@ class MainViewController: UIViewController, PortalViewControllerDelegate {
         default:
             break
         }
+    }
+    
+    @objc func togglePortal() {
+        let show = portalViewController.view.frame.origin.x == -(portalViewController.view.frame.size.width)
+        UIView.animate(withDuration: 0.3) {
+            self.portalViewController.view.frame.origin.x = show ? 0 : -(self.portalViewController.view.frame.size.width);
+            self.portalMask.alpha = show ? 1 : 0;
+        }
+    }
+}
+
+extension MainViewController {
+    func didSelectCurrency(array: [String], timestamp: Date) {
+        
     }
 }

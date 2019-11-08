@@ -11,7 +11,7 @@ import UIKit
 class CCStoryboard: NSObject {
     
     class func mainStoryboard() -> (UIStoryboard) {
-        return UIStoryboard(name: "Main", bundle: nil)
+        return UIStoryboard(name: "LaunchScreen", bundle: nil)
     }
     
     class func viewController(identifier: String) -> (UIViewController) {
