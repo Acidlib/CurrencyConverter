@@ -15,6 +15,9 @@
 		5F0E748E23750D9900F423C6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F0E748C23750D9900F423C6 /* LaunchScreen.storyboard */; };
 		5F0E749923750D9A00F423C6 /* CurrencyConversionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0E749823750D9A00F423C6 /* CurrencyConversionTests.swift */; };
 		5F0E74A423750D9A00F423C6 /* CurrencyConversionUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0E74A323750D9A00F423C6 /* CurrencyConversionUITests.swift */; };
+		5F0E74B423750E5200F423C6 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0E74B323750E5200F423C6 /* APIManager.swift */; };
+		5F0E74B923750FA900F423C6 /* currencyHistory.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5F0E74B723750FA900F423C6 /* currencyHistory.xcdatamodeld */; };
+		5F0E74BB237510B800F423C6 /* APIManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0E74BA237510B800F423C6 /* APIManagerProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +52,9 @@
 		5F0E749F23750D9A00F423C6 /* CurrencyConversionUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CurrencyConversionUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F0E74A323750D9A00F423C6 /* CurrencyConversionUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyConversionUITests.swift; sourceTree = "<group>"; };
 		5F0E74A523750D9A00F423C6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5F0E74B323750E5200F423C6 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = APIManager.swift; path = CurrencyConversion/Server/APIManager.swift; sourceTree = SOURCE_ROOT; };
+		5F0E74B823750FA900F423C6 /* currencyHistory.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = currencyHistory.xcdatamodel; sourceTree = "<group>"; };
+		5F0E74BA237510B800F423C6 /* APIManagerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManagerProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +105,9 @@
 		5F0E748023750D9600F423C6 /* CurrencyConversion */ = {
 			isa = PBXGroup;
 			children = (
+				5F0E74B723750FA900F423C6 /* currencyHistory.xcdatamodeld */,
+				5F0E74B623750E9100F423C6 /* DataEntities */,
+				5F0E74B523750E5C00F423C6 /* Server */,
 				5F0E748123750D9600F423C6 /* AppDelegate.swift */,
 				5F0E748323750D9600F423C6 /* SceneDelegate.swift */,
 				5F0E748523750D9600F423C6 /* ContentView.swift */,
@@ -134,6 +143,22 @@
 				5F0E74A523750D9A00F423C6 /* Info.plist */,
 			);
 			path = CurrencyConversionUITests;
+			sourceTree = "<group>";
+		};
+		5F0E74B523750E5C00F423C6 /* Server */ = {
+			isa = PBXGroup;
+			children = (
+				5F0E74B323750E5200F423C6 /* APIManager.swift */,
+				5F0E74BA237510B800F423C6 /* APIManagerProtocol.swift */,
+			);
+			path = Server;
+			sourceTree = "<group>";
+		};
+		5F0E74B623750E9100F423C6 /* DataEntities */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = DataEntities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -267,8 +292,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5F0E74B923750FA900F423C6 /* currencyHistory.xcdatamodeld in Sources */,
+				5F0E74B423750E5200F423C6 /* APIManager.swift in Sources */,
 				5F0E748223750D9600F423C6 /* AppDelegate.swift in Sources */,
 				5F0E748423750D9600F423C6 /* SceneDelegate.swift in Sources */,
+				5F0E74BB237510B800F423C6 /* APIManagerProtocol.swift in Sources */,
 				5F0E748623750D9600F423C6 /* ContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -594,6 +622,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		5F0E74B723750FA900F423C6 /* currencyHistory.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				5F0E74B823750FA900F423C6 /* currencyHistory.xcdatamodel */,
+			);
+			currentVersion = 5F0E74B823750FA900F423C6 /* currencyHistory.xcdatamodel */;
+			path = currencyHistory.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 5F0E747623750D9600F423C6 /* Project object */;
 }
