@@ -96,7 +96,7 @@ extension PortalViewController: UITableViewDataSource {
         } else {
             selectedArray.append(selectedCurrency)
         }
-        self.portalTable.reloadData()
+        self.portalTable.reloadSections([indexPath.section], with: .none)
     }
 }
 
