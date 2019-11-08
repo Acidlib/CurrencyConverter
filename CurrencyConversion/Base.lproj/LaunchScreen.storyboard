@@ -89,10 +89,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="rKR-Kk-W2v">
-                                <rect key="frame" x="20" y="44" width="374" height="56"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="eYX-My-QeF">
                                 <rect key="frame" x="20" y="100" width="374" height="742"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -159,18 +155,15 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="rKR-Kk-W2v" firstAttribute="leading" secondItem="SKL-kW-ysM" secondAttribute="leading" constant="20" id="Ay4-0F-brF"/>
                             <constraint firstItem="eYX-My-QeF" firstAttribute="leading" secondItem="SKL-kW-ysM" secondAttribute="leading" constant="20" id="K7e-Wn-Ofq"/>
                             <constraint firstItem="eYX-My-QeF" firstAttribute="top" secondItem="SKL-kW-ysM" secondAttribute="top" constant="56" id="Sqa-QT-3iv"/>
                             <constraint firstItem="eYX-My-QeF" firstAttribute="bottom" secondItem="SKL-kW-ysM" secondAttribute="bottom" constant="-20" id="W5Q-X4-SmP"/>
                             <constraint firstItem="eYX-My-QeF" firstAttribute="trailing" secondItem="SKL-kW-ysM" secondAttribute="trailing" constant="-20" id="dIk-2l-hn3"/>
-                            <constraint firstItem="rKR-Kk-W2v" firstAttribute="trailing" secondItem="SKL-kW-ysM" secondAttribute="trailing" constant="-20" id="wRu-tQ-5Eq"/>
-                            <constraint firstItem="rKR-Kk-W2v" firstAttribute="top" secondItem="SKL-kW-ysM" secondAttribute="top" id="xrn-es-zTK"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="SKL-kW-ysM"/>
                     </view>
                     <connections>
-                        <outlet property="portalTable" destination="eYX-My-QeF" id="DoK-sG-TIM"/>
+                        <outlet property="portalTable" destination="eYX-My-QeF" id="qcr-sI-edi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="07V-iE-NJT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
