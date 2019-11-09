@@ -53,7 +53,7 @@ class PortalViewController: UIViewController {
     }
 }
 
-extension PortalViewController: UITableViewDataSource {
+extension PortalViewController: UITableViewDataSource, UITableViewDelegate {
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return currencyArray.count
