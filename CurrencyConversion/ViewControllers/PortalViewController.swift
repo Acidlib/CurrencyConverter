@@ -13,7 +13,7 @@ struct Section {
     let countries : [String]
 }
 
-class PortalViewController: UIViewController, UITableViewDelegate {
+class PortalViewController: UIViewController {
     
     @IBOutlet weak var portalTable: UITableView!
     weak var delegate: PortalViewControllerDelegate?
