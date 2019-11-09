@@ -13,12 +13,10 @@ struct Section {
     let countries : [String]
 }
 
-class PortalViewController: UIViewController {
+class PortalViewController: BaseViewController {
     
     @IBOutlet weak var portalTable: UITableView!
     weak var delegate: PortalViewControllerDelegate?
-    var currencyArray: [Section] = []
-    var selectedArray: [String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,11 +47,6 @@ class PortalViewController: UIViewController {
             currencyArray = keys.map {
                 Section(alphabet: $0, countries: (groupedDic[$0]?.sorted())!)
             }
-        }
-        
-        // set default selection
-        if selectedArray.count == 0 {
-            selectedArray = ["Euro,EUR", "United State,USD", "Japan Yen,JPY", "Great Britain Pound,GBP"]
         }
     }
 }

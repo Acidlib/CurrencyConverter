@@ -8,20 +8,20 @@
 
 import UIKit
 
-class MainViewController: UIViewController {
+class MainViewController: BaseViewController {
 
     var portalMask: UIView = UIView()
     var panGesture: UIPanGestureRecognizer = UIPanGestureRecognizer()
     var portalViewController: PortalViewController = PortalViewController()
     var touchPoint: CGPoint = CGPoint()
     var preTouchPoint: CGPoint = CGPoint()
-    var selectedArray: [String] = []
     
     @IBOutlet weak var mainTable: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.loadPortalMenu()
+        self.loadMainTable()
         self.view.isUserInteractionEnabled = true
         panGesture = UIPanGestureRecognizer(target: self, action: #selector(handlePan(gr:)))
         self.view.addGestureRecognizer(panGesture)
@@ -43,6 +43,13 @@ class MainViewController: UIViewController {
         self.view.addSubview(portalViewController.view)
         self.addChild(portalViewController)
         portalViewController.didMove(toParent: self)
+    }
+    
+    func loadMainTable() {
+        mainTable.rowHeight = 70;
+        mainTable.delegate = self
+        mainTable.dataSource = self
+        mainTable.allowsSelection = true
     }
     
     func isPortalOpened() -> (Bool) {
@@ -105,6 +112,35 @@ class MainViewController: UIViewController {
         self.togglePortal()
     }
     
+}
+
+extension MainViewController: UITableViewDataSource, UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cellID = "mainCurrencyCell"
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath) as! MainCurrencyCell
+        let arrContext = selectedArray[indexPath.row].components(separatedBy: ",")
+        if arrContext.count == 2 {
+            cell.abbr.text = arrContext[1]
+            cell.currencyName.text = arrContext[0]
+            let img = UIImage(named: "\(String(cell.abbr.text!.prefix(3).lowercased())).png") ?? UIImage(named: "unknown.png")
+            cell.flag.image = img
+        }
+        cell.selectionStyle = .none
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.selectedArray.count
+    }
+    
+}
+
+class MainCurrencyCell: UITableViewCell {
+    @IBOutlet weak var textField: UITextField!
+    @IBOutlet weak var flag: UIImageView!
+    @IBOutlet weak var abbr: UILabel!
+    @IBOutlet weak var currencyName: UILabel!
 }
 
 extension MainViewController: PortalViewControllerDelegate {

@@ -22,6 +22,7 @@
 		5F0E74C323751C1400F423C6 /* PortalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0E74C223751C1400F423C6 /* PortalViewController.swift */; };
 		5F0E74C523753C7A00F423C6 /* CCStoryboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0E74C423753C7A00F423C6 /* CCStoryboard.swift */; };
 		5F7C709023756EB800FBFBB0 /* currency_abbr.txt in Resources */ = {isa = PBXBuildFile; fileRef = 5F7C708F23756EB800FBFBB0 /* currency_abbr.txt */; };
+		5FDC73B12376860A00BF3350 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FDC73B02376860A00BF3350 /* BaseViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +64,7 @@
 		5F0E74C223751C1400F423C6 /* PortalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortalViewController.swift; sourceTree = "<group>"; };
 		5F0E74C423753C7A00F423C6 /* CCStoryboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CCStoryboard.swift; sourceTree = "<group>"; };
 		5F7C708F23756EB800FBFBB0 /* currency_abbr.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = currency_abbr.txt; sourceTree = "<group>"; };
+		5FDC73B02376860A00BF3350 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -175,6 +177,7 @@
 		5F0E74BF23751BA900F423C6 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				5FDC73B02376860A00BF3350 /* BaseViewController.swift */,
 				5F0E74C023751BE500F423C6 /* MainViewController.swift */,
 				5F0E74C223751C1400F423C6 /* PortalViewController.swift */,
 			);
@@ -318,6 +321,7 @@
 				5F0E74B423750E5200F423C6 /* APIManager.swift in Sources */,
 				5F0E748223750D9600F423C6 /* AppDelegate.swift in Sources */,
 				5F0E748423750D9600F423C6 /* SceneDelegate.swift in Sources */,
+				5FDC73B12376860A00BF3350 /* BaseViewController.swift in Sources */,
 				5F0E74BB237510B800F423C6 /* APIManagerProtocol.swift in Sources */,
 				5F0E74C523753C7A00F423C6 /* CCStoryboard.swift in Sources */,
 				5F0E74C323751C1400F423C6 /* PortalViewController.swift in Sources */,
