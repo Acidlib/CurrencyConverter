@@ -12,6 +12,10 @@ class BaseViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        NotificationCenter.default.addObserver(self, selector: #selector(rateDidUpdated), name: .rateDidUpdate, object: nil)
     }
     
+    @objc func rateDidUpdated() {
+        // override
+    }
 }

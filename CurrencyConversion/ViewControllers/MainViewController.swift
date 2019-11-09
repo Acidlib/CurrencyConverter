@@ -28,6 +28,12 @@ class MainViewController: BaseViewController {
         self.view.addGestureRecognizer(panGesture)
     }
     
+    override func rateDidUpdated() {
+        DispatchQueue.main.async {
+            self.mainTable.reloadData()
+        }
+    }
+    
     func loadPortalMenu() {
         portalMask = UIView(frame: self.view.bounds)
         portalMask.backgroundColor = UIColor.init(white: 0, alpha: 0.7)

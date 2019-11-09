@@ -18,6 +18,12 @@ class PortalViewController: BaseViewController {
         self.loadTableView()
     }
     
+    override func rateDidUpdated() {
+        DispatchQueue.main.async {
+            self.portalTable.reloadData()
+        }
+    }
+    
     func loadTableView() {
         portalTable.delegate = self
         portalTable.dataSource = self

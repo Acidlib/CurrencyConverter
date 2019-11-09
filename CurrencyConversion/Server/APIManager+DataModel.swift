@@ -94,6 +94,17 @@ extension APIManager {
                     }
                 }
             })
+            
+            // temp: should be optimized (using CoreData notify rather than cached array):
+            let groupedList = Dictionary(grouping: allCurrencyList, by: { $0.currencyName.prefix(1) })
+            let keys = groupedList.keys.sorted()
+            groupedAllCurrencyList = keys.map({
+                Section(alphabet: String($0), countries: groupedList[$0]!)
+            })
+            loadSelectedArray()
+            
+            // finished data arrangement, notify
+            NotificationCenter.default.post(name: .rateDidUpdate, object: nil)
             try context.save()
         } catch {
             print("save currency rate to model failed")
@@ -146,4 +157,8 @@ extension APIManager {
             print("selection failed:\(error), \(error.localizedDescription)")
         }
     }
+}
+
+extension Notification.Name {
+    static var rateDidUpdate: Notification.Name { return .init(rawValue: "api.rateDidUpdate") }
 }
