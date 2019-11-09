@@ -21,11 +21,6 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        mainTable.delegate = self
-        mainTable.dataSource = self
-        mainTable.allowsSelection = true
-        
         self.loadPortalMenu()
         self.view.isUserInteractionEnabled = true
         panGesture = UIPanGestureRecognizer(target: self, action: #selector(handlePan(gr:)))
@@ -112,44 +107,9 @@ class MainViewController: UIViewController {
     
 }
 
-extension MainViewController: UITableViewDataSource, UITableViewDelegate {
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cellID = "mainCurrencyCell"
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath) as! MainCurrencyCell
-        let arrContext = selectedArray[indexPath.row].components(separatedBy: ",")
-        if arrContext.count == 2 {
-            cell.abbr.text = arrContext[1]
-            cell.currencyName.text = arrContext[0]
-            let img = UIImage(named: "\(String(cell.abbr.text!.prefix(3).lowercased())).png") ?? UIImage(named: "unknown.png")
-            cell.flag.image = img
-        }
-        cell.selectionStyle = .none
-        return cell
-    }
-
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return selectedArray.count
-    }
-
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    }
-}
-
 extension MainViewController: PortalViewControllerDelegate {
     func didSelectCurrency(array: [String], timestamp: Date) {
         self.selectedArray = array
         mainTable.reloadData()
     }
-}
-
-class MainCurrencyCell: UITableViewCell {
-    @IBOutlet weak var abbr: UILabel!
-    @IBOutlet weak var currencyName: UILabel!
-    @IBOutlet weak var textField: UITextField!
-    @IBOutlet weak var flag: UIImageView!
 }
