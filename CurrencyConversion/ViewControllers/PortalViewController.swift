@@ -22,10 +22,6 @@ class PortalViewController: BaseViewController {
         super.viewDidLoad()
         self.loadTableView()
     }
-
-    override func didMove(toParent parent: UIViewController?) {
-        
-    }
     
     func loadTableView() {
         portalTable.delegate = self
