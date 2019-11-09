@@ -21,7 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         return true
     }
-    
+
     func backgroundFetch(_ task: BGAppRefreshTask) {
         task.expirationHandler = {
             APIManager.shared.requestCurrenctRate()
@@ -42,6 +42,4 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
 
-
 }
-

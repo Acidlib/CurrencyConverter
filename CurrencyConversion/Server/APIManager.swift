@@ -21,14 +21,14 @@ class APIManager: APIManagerProtocol {
         }
         return model
     }()
-    
+
     let container: NSPersistentContainer
     var context: NSManagedObjectContext
     var selectedCurrencyList: [CurrencyRateEntity.type] = []
     var allCurrencyList: [CurrencyRateEntity.type] = []
     var groupedAllCurrencyList: [Section] = []
     var abbrDictionary: [String: String] = [:]
-    
+
     init() {
         container = NSPersistentContainer(name: APIManager.coreDataStoreName, managedObjectModel: APIManager.coreDataModel)
         container.loadPersistentStores(completionHandler: { (_, error) in
@@ -39,7 +39,7 @@ class APIManager: APIManagerProtocol {
         context = container.newBackgroundContext()
         self.loadAbbrDictionary()
     }
-    
+
     func makeApiCall(_ input: CHAPICallObject, _ completion: @escaping (CHApiResult) -> Void) {
         do {
             let jsonObj = try JSONSerialization.data(withJSONObject: input.body as Any, options: [])
@@ -62,6 +62,6 @@ class APIManager: APIManagerProtocol {
 }
 
 struct Section {
-    let alphabet : String
-    var countries : [CurrencyRateEntity.type]
+    let alphabet: String
+    var countries: [CurrencyRateEntity.type]
 }

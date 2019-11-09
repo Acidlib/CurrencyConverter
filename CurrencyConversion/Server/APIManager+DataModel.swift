@@ -29,7 +29,7 @@ extension APIManager {
             abbrDictionary = dict
         }
     }
-    
+
     func loadLocalCurrencyRate() {
         let fetchRequest = NSFetchRequest<CurrencyRateEntity>(entityName: "CurrencyRateEntity")
         do {
@@ -53,14 +53,14 @@ extension APIManager {
             print("fetch failed:\(error), \(error.localizedDescription)")
         }
     }
-    
+
     func requestCurrenctRate() {
         let callObj = CHAPICallObject(.post, "http://www.apilayer.net/api/live?access_key=\(currencylayeraAiKey)", [:])
         self.makeApiCall(callObj, { [weak self] result in
             if result.success {
-                if let dict = result.data as? Dictionary<String, Any>,
+                if let dict = result.data as? [String: Any],
                     let timestamp = dict["timestamp"] as? TimeInterval,
-                    let result = dict["quotes"] as? Dictionary<String, Double> {
+                    let result = dict["quotes"] as? [String: Double] {
                     self?.saveCurrencyRateToDatamodel(dictionary: result, timestamp: timestamp)
                 } else {
                     print("Ooops, parsing api result failed")
@@ -70,7 +70,7 @@ extension APIManager {
             }
         })
     }
-    
+
     func saveCurrencyRateToDatamodel(dictionary: [String: Double], timestamp: TimeInterval) {
         do {
             _ = try dictionary.map({ (arg0) in
@@ -94,7 +94,7 @@ extension APIManager {
                     }
                 }
             })
-            
+
             // temp: should be optimized (using CoreData notify rather than cached array):
             let groupedList = Dictionary(grouping: allCurrencyList, by: { $0.currencyName.prefix(1) })
             let keys = groupedList.keys.sorted()
@@ -102,7 +102,7 @@ extension APIManager {
                 Section(alphabet: String($0), countries: groupedList[$0]!)
             })
             loadSelectedArray()
-            
+
             // finished data arrangement, notify
             NotificationCenter.default.post(name: .rateDidUpdate, object: nil)
             try context.save()
@@ -110,7 +110,7 @@ extension APIManager {
             print("save currency rate to model failed")
         }
     }
-    
+
     func loadSelectedArray() {
         let fetchRequest = NSFetchRequest<CurrencyRateEntity>(entityName: "CurrencyRateEntity")
         fetchRequest.predicate = NSPredicate(format: "selected == %d", true)
@@ -125,7 +125,7 @@ extension APIManager {
             print("fetch failed:\(error), \(error.localizedDescription)")
         }
     }
-    
+
     func didSelectCurrency(section: Int, entity: CurrencyRateEntity.type) {
         let fetchRequest = NSFetchRequest<CurrencyRateEntity>(entityName: "CurrencyRateEntity")
         fetchRequest.predicate = NSPredicate(format: "abbr == %@", entity.abbr)
