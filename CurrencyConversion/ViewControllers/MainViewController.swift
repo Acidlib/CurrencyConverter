@@ -15,6 +15,7 @@ class MainViewController: BaseViewController {
     var portalViewController: PortalViewController = PortalViewController()
     var touchPoint: CGPoint = CGPoint()
     var preTouchPoint: CGPoint = CGPoint()
+    var ratio: Double = 1.0
     
     @IBOutlet weak var mainTable: UITableView!
     
@@ -115,6 +116,45 @@ class MainViewController: BaseViewController {
         self.togglePortal()
     }
     
+    @IBAction func didEditTextInput(_ sender: Any) {
+        guard let cell = (sender as AnyObject).superview?.superview as? MainCurrencyCell else {
+            return
+        }
+        
+        let indexPath = mainTable.indexPath(for: cell)
+        if let textField = sender as? UITextField,
+            let value = textField.text,
+            let rate = textField.placeholder,
+            let num = Double(value),
+            let denom = Double(rate),
+            let idx = indexPath?.row {
+            ratio = num/denom
+            var indexPaths = mainTable.indexPathsForVisibleRows
+            if indexPaths?.count ?? 0 > idx {
+                indexPaths?.remove(at: idx)
+                self.mainTable.reloadRows(at: indexPaths!, with: .none)
+            }
+        }
+    }
+
+    @IBAction func beginTextInput(_ sender: Any) {
+        guard let cell = (sender as AnyObject).superview?.superview as? MainCurrencyCell else {
+            return
+        }
+        
+        let indexPath = mainTable.indexPath(for: cell)
+        if let textField = sender as? UITextField, let idx = indexPath?.row {
+            var indexPaths = mainTable.indexPathsForVisibleRows
+            if indexPaths?.count ?? 0 > idx {
+                let obj = APIManager.shared.selectedCurrencyList[idx]
+                textField.placeholder = String(format:"%.02f", obj.rate)
+                textField.text = String(format:"%.02f", obj.rate)
+                indexPaths?.remove(at: idx)
+                ratio = 1.0
+                self.mainTable.reloadRows(at: indexPaths!, with: .none)
+            }
+        }
+    }
 }
 
 extension MainViewController: UITableViewDataSource, UITableViewDelegate {
@@ -128,7 +168,8 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate {
         let img = UIImage(named: "\(String(cell.abbr.text!.prefix(3).lowercased())).png") ?? UIImage(named: "unknown.png")
         cell.flag.image = img
         cell.selectionStyle = .none
-        cell.textField.placeholder = String(format:"%f", obj.rate)
+        cell.textField.placeholder = String(format:"%.02f", obj.rate)
+        cell.textField.text = String(format:"%.02f", obj.rate*ratio)
         return cell
     }
     

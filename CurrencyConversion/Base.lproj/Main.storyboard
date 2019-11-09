@@ -47,7 +47,8 @@
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                     <connections>
-                                                        <action selector="textField:" destination="Oht-Sf-P1R" eventType="editingDidEnd" id="Yab-tA-bZr"/>
+                                                        <action selector="beginTextInput:" destination="01J-lp-oVM" eventType="editingDidBegin" id="LPf-Ki-n6E"/>
+                                                        <action selector="didEditTextInput:" destination="01J-lp-oVM" eventType="editingChanged" id="DHg-ka-TjO"/>
                                                     </connections>
                                                 </textField>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mc1-dH-lHX">
@@ -117,7 +118,6 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="Oht-Sf-P1R" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="52.173913043478265" y="375"/>
         </scene>
