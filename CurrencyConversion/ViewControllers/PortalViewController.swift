@@ -50,6 +50,11 @@ class PortalViewController: UIViewController {
                 Section(alphabet: $0, countries: (groupedDic[$0]?.sorted())!)
             }
         }
+        
+        // set default selection
+        if selectedArray.count == 0 {
+            selectedArray = ["Euro,EUR", "United State,USD", "Japan Yen,JPY", "Great Britain Pound,GBP"]
+        }
     }
 }
 
@@ -67,7 +72,7 @@ extension PortalViewController: UITableViewDataSource, UITableViewDelegate {
         if arrContext.count == 2 {
             cell.abbr.text = arrContext[1]
             cell.currencyName.text = arrContext[0]
-            let img = UIImage(named: "\(String(cell.abbr.text!.prefix(2).lowercased())).png") ?? UIImage(named: "unknown.png")
+            let img = UIImage(named: "\(String(cell.abbr.text!.prefix(3).lowercased())).png") ?? UIImage(named: "unknown.png")
             cell.flag.image = img
             cell.check.image = selectedArray.contains("\(cell.currencyName.text!),\(String(describing: cell.abbr.text!))") ? UIImage(named: "checked.png") : UIImage(named: "unchecked.png")
         }
