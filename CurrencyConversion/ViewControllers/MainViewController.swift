@@ -128,6 +128,7 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate {
         let img = UIImage(named: "\(String(cell.abbr.text!.prefix(3).lowercased())).png") ?? UIImage(named: "unknown.png")
         cell.flag.image = img
         cell.selectionStyle = .none
+        cell.textField.placeholder = String(format:"%f", obj.rate)
         return cell
     }
     
