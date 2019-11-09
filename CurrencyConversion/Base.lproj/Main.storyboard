@@ -38,7 +38,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="374" height="80"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gvk-kl-tWT">
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="right" minimumFontSize="11" translatesAutoresizingMaskIntoConstraints="NO" id="gvk-kl-tWT">
                                                     <rect key="frame" x="234" y="15" width="120" height="50"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="50" id="HMn-hZ-9iC"/>

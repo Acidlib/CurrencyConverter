@@ -50,6 +50,8 @@ class MainViewController: BaseViewController {
         mainTable.delegate = self
         mainTable.dataSource = self
         mainTable.allowsSelection = true
+        mainTable.alwaysBounceVertical = false
+        mainTable.showsVerticalScrollIndicator = false
     }
     
     func isPortalOpened() -> (Bool) {
@@ -57,6 +59,7 @@ class MainViewController: BaseViewController {
     }
 
     @objc func handlePan(gr: UIPanGestureRecognizer) {
+        view.endEditing(true)
         switch gr.state {
         case .began:
             touchPoint = preTouchPoint
