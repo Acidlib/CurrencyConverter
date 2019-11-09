@@ -7,17 +7,28 @@
 //
 
 import UIKit
+import BackgroundTasks
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
         APIManager.shared.loadLocalCurrencyRate()
+        BGTaskScheduler.shared.register(forTaskWithIdentifier: "co.yiling.CurrencyConversion.currencyRateUpdate", using: nil) { task in
+            if let bgTask = task as? BGAppRefreshTask {
+                self.backgroundFetch(bgTask)
+            }
+        }
         return true
     }
-
-    // MARK: UISceneSession Lifecycle
+    
+    func backgroundFetch(_ task: BGAppRefreshTask) {
+        task.expirationHandler = {
+            APIManager.shared.requestCurrenctRate()
+            print("Did Excute Background Fetch")
+        }
+        task.setTaskCompleted(success: true)
+    }
 
     func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
         // Called when a new scene session is being created.
