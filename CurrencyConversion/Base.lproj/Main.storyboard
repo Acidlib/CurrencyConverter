@@ -39,7 +39,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="right" minimumFontSize="11" translatesAutoresizingMaskIntoConstraints="NO" id="gvk-kl-tWT">
-                                                    <rect key="frame" x="234" y="15" width="120" height="50"/>
+                                                    <rect key="frame" x="254" y="15" width="120" height="50"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="50" id="HMn-hZ-9iC"/>
                                                         <constraint firstAttribute="width" constant="120" id="hwn-2f-tzd"/>
@@ -58,7 +58,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ABR" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rid-am-gQl">
-                                                    <rect key="frame" x="45" y="13" width="119" height="18"/>
+                                                    <rect key="frame" x="45" y="13" width="139" height="18"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="18" id="LSB-6b-m3U"/>
                                                         <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="29" id="bIE-3a-vwo"/>
@@ -88,7 +88,7 @@
                                                 <constraint firstItem="gvk-kl-tWT" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Z0N-nr-kIR" secondAttribute="trailing" constant="5" id="lca-Q4-j5V"/>
                                                 <constraint firstItem="gvk-kl-tWT" firstAttribute="leading" secondItem="rid-am-gQl" secondAttribute="trailing" constant="70" id="riz-DI-I5I"/>
                                                 <constraint firstItem="Z0N-nr-kIR" firstAttribute="centerY" secondItem="za5-1q-gy1" secondAttribute="centerY" id="vYo-a8-qKG"/>
-                                                <constraint firstAttribute="trailing" secondItem="gvk-kl-tWT" secondAttribute="trailing" constant="20" id="xGq-Ds-0hI"/>
+                                                <constraint firstAttribute="trailing" secondItem="gvk-kl-tWT" secondAttribute="trailing" id="xGq-Ds-0hI"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
