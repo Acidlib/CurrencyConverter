@@ -122,19 +122,17 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellID = "mainCurrencyCell"
         let cell = tableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath) as! MainCurrencyCell
-        let arrContext = selectedArray[indexPath.row].components(separatedBy: ",")
-        if arrContext.count == 2 {
-            cell.abbr.text = arrContext[1]
-            cell.currencyName.text = arrContext[0]
-            let img = UIImage(named: "\(String(cell.abbr.text!.prefix(3).lowercased())).png") ?? UIImage(named: "unknown.png")
-            cell.flag.image = img
-        }
+        let obj = APIManager.shared.selectedCurrencyList[indexPath.row]
+        cell.abbr.text = obj.abbr
+        cell.currencyName.text = obj.currencyName
+        let img = UIImage(named: "\(String(cell.abbr.text!.prefix(3).lowercased())).png") ?? UIImage(named: "unknown.png")
+        cell.flag.image = img
         cell.selectionStyle = .none
         return cell
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.selectedArray.count
+        return APIManager.shared.selectedCurrencyList.count
     }
     
 }
@@ -148,7 +146,6 @@ class MainCurrencyCell: UITableViewCell {
 
 extension MainViewController: PortalViewControllerDelegate {
     func didSelectCurrency(array: [String], timestamp: Date) {
-        self.selectedArray = array
         mainTable.reloadData()
     }
 }

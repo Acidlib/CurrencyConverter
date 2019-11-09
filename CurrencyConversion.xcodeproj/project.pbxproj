@@ -16,11 +16,13 @@
 		5F0E749923750D9A00F423C6 /* CurrencyConversionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0E749823750D9A00F423C6 /* CurrencyConversionTests.swift */; };
 		5F0E74A423750D9A00F423C6 /* CurrencyConversionUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0E74A323750D9A00F423C6 /* CurrencyConversionUITests.swift */; };
 		5F0E74B423750E5200F423C6 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0E74B323750E5200F423C6 /* APIManager.swift */; };
-		5F0E74B923750FA900F423C6 /* currencyHistory.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5F0E74B723750FA900F423C6 /* currencyHistory.xcdatamodeld */; };
 		5F0E74BB237510B800F423C6 /* APIManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0E74BA237510B800F423C6 /* APIManagerProtocol.swift */; };
 		5F0E74C123751BE500F423C6 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0E74C023751BE500F423C6 /* MainViewController.swift */; };
 		5F0E74C323751C1400F423C6 /* PortalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0E74C223751C1400F423C6 /* PortalViewController.swift */; };
 		5F0E74C523753C7A00F423C6 /* CCStoryboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0E74C423753C7A00F423C6 /* CCStoryboard.swift */; };
+		5F31851C2376A8B200B473C1 /* CurrencyDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5F31851A2376A8B200B473C1 /* CurrencyDataModel.xcdatamodeld */; };
+		5F31851E2376A9E300B473C1 /* APIManager+DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F31851D2376A9E300B473C1 /* APIManager+DataModel.swift */; };
+		5F3185232376AC0800B473C1 /* CurrencyRateEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F3185222376AC0800B473C1 /* CurrencyRateEntity.swift */; };
 		5F7C709023756EB800FBFBB0 /* currency_abbr.txt in Resources */ = {isa = PBXBuildFile; fileRef = 5F7C708F23756EB800FBFBB0 /* currency_abbr.txt */; };
 		5FDC73B12376860A00BF3350 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FDC73B02376860A00BF3350 /* BaseViewController.swift */; };
 /* End PBXBuildFile section */
@@ -58,11 +60,13 @@
 		5F0E74A323750D9A00F423C6 /* CurrencyConversionUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyConversionUITests.swift; sourceTree = "<group>"; };
 		5F0E74A523750D9A00F423C6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5F0E74B323750E5200F423C6 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = APIManager.swift; path = CurrencyConversion/Server/APIManager.swift; sourceTree = SOURCE_ROOT; };
-		5F0E74B823750FA900F423C6 /* currencyHistory.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = currencyHistory.xcdatamodel; sourceTree = "<group>"; };
 		5F0E74BA237510B800F423C6 /* APIManagerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManagerProtocol.swift; sourceTree = "<group>"; };
 		5F0E74C023751BE500F423C6 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		5F0E74C223751C1400F423C6 /* PortalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortalViewController.swift; sourceTree = "<group>"; };
 		5F0E74C423753C7A00F423C6 /* CCStoryboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CCStoryboard.swift; sourceTree = "<group>"; };
+		5F31851B2376A8B200B473C1 /* CurreyncyDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CurreyncyDataModel.xcdatamodel; sourceTree = "<group>"; };
+		5F31851D2376A9E300B473C1 /* APIManager+DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "APIManager+DataModel.swift"; sourceTree = "<group>"; };
+		5F3185222376AC0800B473C1 /* CurrencyRateEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrencyRateEntity.swift; sourceTree = "<group>"; };
 		5F7C708F23756EB800FBFBB0 /* currency_abbr.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = currency_abbr.txt; sourceTree = "<group>"; };
 		5FDC73B02376860A00BF3350 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -95,6 +99,7 @@
 		5F0E747523750D9600F423C6 = {
 			isa = PBXGroup;
 			children = (
+				5F31851A2376A8B200B473C1 /* CurrencyDataModel.xcdatamodeld */,
 				5F0E748023750D9600F423C6 /* CurrencyConversion */,
 				5F0E749723750D9A00F423C6 /* CurrencyConversionTests */,
 				5F0E74A223750D9A00F423C6 /* CurrencyConversionUITests */,
@@ -115,7 +120,7 @@
 		5F0E748023750D9600F423C6 /* CurrencyConversion */ = {
 			isa = PBXGroup;
 			children = (
-				5F0E74B623750E9100F423C6 /* DataEntities */,
+				5F3185212376AC0800B473C1 /* DataEntities */,
 				5F0E74B523750E5C00F423C6 /* Server */,
 				5F0E74BF23751BA900F423C6 /* ViewControllers */,
 				5F0E748123750D9600F423C6 /* AppDelegate.swift */,
@@ -125,7 +130,6 @@
 				5F0E748C23750D9900F423C6 /* Main.storyboard */,
 				5F0E748F23750D9900F423C6 /* Info.plist */,
 				5F0E748923750D9900F423C6 /* Preview Content */,
-				5F0E74B723750FA900F423C6 /* currencyHistory.xcdatamodeld */,
 				5F7C708F23756EB800FBFBB0 /* currency_abbr.txt */,
 			);
 			path = CurrencyConversion;
@@ -161,17 +165,11 @@
 		5F0E74B523750E5C00F423C6 /* Server */ = {
 			isa = PBXGroup;
 			children = (
-				5F0E74B323750E5200F423C6 /* APIManager.swift */,
 				5F0E74BA237510B800F423C6 /* APIManagerProtocol.swift */,
+				5F0E74B323750E5200F423C6 /* APIManager.swift */,
+				5F31851D2376A9E300B473C1 /* APIManager+DataModel.swift */,
 			);
 			path = Server;
-			sourceTree = "<group>";
-		};
-		5F0E74B623750E9100F423C6 /* DataEntities */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = DataEntities;
 			sourceTree = "<group>";
 		};
 		5F0E74BF23751BA900F423C6 /* ViewControllers */ = {
@@ -182,6 +180,14 @@
 				5F0E74C223751C1400F423C6 /* PortalViewController.swift */,
 			);
 			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		5F3185212376AC0800B473C1 /* DataEntities */ = {
+			isa = PBXGroup;
+			children = (
+				5F3185222376AC0800B473C1 /* CurrencyRateEntity.swift */,
+			);
+			path = DataEntities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -316,10 +322,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5F31851C2376A8B200B473C1 /* CurrencyDataModel.xcdatamodeld in Sources */,
 				5F0E74C123751BE500F423C6 /* MainViewController.swift in Sources */,
-				5F0E74B923750FA900F423C6 /* currencyHistory.xcdatamodeld in Sources */,
 				5F0E74B423750E5200F423C6 /* APIManager.swift in Sources */,
+				5F3185232376AC0800B473C1 /* CurrencyRateEntity.swift in Sources */,
 				5F0E748223750D9600F423C6 /* AppDelegate.swift in Sources */,
+				5F31851E2376A9E300B473C1 /* APIManager+DataModel.swift in Sources */,
 				5F0E748423750D9600F423C6 /* SceneDelegate.swift in Sources */,
 				5FDC73B12376860A00BF3350 /* BaseViewController.swift in Sources */,
 				5F0E74BB237510B800F423C6 /* APIManagerProtocol.swift in Sources */,
@@ -652,13 +660,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		5F0E74B723750FA900F423C6 /* currencyHistory.xcdatamodeld */ = {
+		5F31851A2376A8B200B473C1 /* CurrencyDataModel.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				5F0E74B823750FA900F423C6 /* currencyHistory.xcdatamodel */,
+				5F31851B2376A8B200B473C1 /* CurreyncyDataModel.xcdatamodel */,
 			);
-			currentVersion = 5F0E74B823750FA900F423C6 /* currencyHistory.xcdatamodel */;
-			path = currencyHistory.xcdatamodeld;
+			currentVersion = 5F31851B2376A8B200B473C1 /* CurreyncyDataModel.xcdatamodel */;
+			name = CurrencyDataModel.xcdatamodeld;
+			path = CurrencyConversion/CurrencyDataModel.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

@@ -10,15 +10,8 @@ import UIKit
 
 class BaseViewController: UIViewController {
     
-    var currencyArray: [Section] = []
-    var selectedArray: [String] = []
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // set default selection
-        if self.selectedArray.count == 0 {
-            self.selectedArray = ["Euro,EUR", "United State,USD", "Japan Yen,JPY", "Great Britain Pound,GBP"]
-        }
     }
     
 }

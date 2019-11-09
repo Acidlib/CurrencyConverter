@@ -44,7 +44,7 @@ public struct CHApiResult {
     var errorDescription: String?
     var data: Any?
 
-    init(success: Bool, errorCode: Int? = nil, requestId: String? = nil, errorDescription: String? = nil, data: Any? = nil) {
+    init(success: Bool, errorCode: Int? = nil, errorDescription: String? = nil, data: Any? = nil) {
         self.success = success
         self.errorDescription = errorDescription
         self.data = data

@@ -13,9 +13,9 @@ let currencylayeraAiKey = "cc89cb9f60d8c11f89a042dd302cf584"
 
 class APIManager: APIManagerProtocol {
     static let shared = APIManager()
-    static var coreDataStoreName = "currencyHistory"
+    static var coreDataStoreName = "CurrencyDataModel"
     static var coreDataModel: NSManagedObjectModel = {
-        guard let modelURL = Bundle(for: APIManager.self).url(forResource: "currenyHistoryModel", withExtension: "momd"),
+        guard let modelURL = Bundle(for: APIManager.self).url(forResource: "CurrencyDataModel", withExtension: "momd"),
             let model = NSManagedObjectModel(contentsOf: modelURL) else {
                 fatalError("Can not init currenyHistoryModel CoreData")
         }
@@ -24,6 +24,10 @@ class APIManager: APIManagerProtocol {
     
     let container: NSPersistentContainer
     var context: NSManagedObjectContext
+    var selectedCurrencyList: [CurrencyRateEntity.type] = []
+    var allCurrencyList: [CurrencyRateEntity.type] = []
+    var groupedAllCurrencyList: [Section] = []
+    var abbrDictionary: [String: String] = [:]
     
     init() {
         container = NSPersistentContainer(name: APIManager.coreDataStoreName, managedObjectModel: APIManager.coreDataModel)
@@ -33,6 +37,7 @@ class APIManager: APIManagerProtocol {
             }
         })
         context = container.newBackgroundContext()
+        self.loadAbbrDictionary()
     }
     
     func makeApiCall(_ input: CHAPICallObject, _ completion: @escaping (CHApiResult) -> Void) {
@@ -43,9 +48,20 @@ class APIManager: APIManagerProtocol {
             request.setValue("application/json", forHTTPHeaderField: "Content-Type")
 
             let task = URLSession.shared.uploadTask(with: request, from: jsonObj) { data, _, error in
+                if error != nil || data == nil {
+                    completion(.init(success: false, errorDescription: error.debugDescription, data: nil))
+                } else if let data = data, let dict = try? JSONSerialization.jsonObject(with: data, options: .mutableContainers) {
+                    completion(.init(success: true, errorCode: nil, errorDescription: nil, data: dict))
+                }
             }
             task.resume()
-        } catch {
+        } catch let error {
+            completion(.init(success: false, errorDescription: error.localizedDescription))
         }
     }
+}
+
+struct Section {
+    let alphabet : String
+    var countries : [CurrencyRateEntity.type]
 }

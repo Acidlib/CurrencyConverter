@@ -8,11 +8,6 @@
 
 import UIKit
 
-struct Section {
-    let alphabet : String
-    let countries : [String]
-}
-
 class PortalViewController: BaseViewController {
     
     @IBOutlet weak var portalTable: UITableView!
@@ -27,71 +22,45 @@ class PortalViewController: BaseViewController {
         portalTable.delegate = self
         portalTable.dataSource = self
         portalTable.allowsSelection = true
-        
-        let path = Bundle.main.path(forResource: "currency_abbr", ofType: "txt")
-        if let path = path {
-            var contents: String
-            do {
-                contents = try NSString(contentsOfFile: path, encoding: String.Encoding.utf8.rawValue) as String
-            } catch {
-                contents = ""
-            }
-            
-            let array = contents.components(separatedBy: "\n")
-            let groupedDic = Dictionary(grouping: array, by: {String($0.prefix(1))})
-            let keys = groupedDic.keys.sorted()
-            currencyArray = keys.map {
-                Section(alphabet: $0, countries: (groupedDic[$0]?.sorted())!)
-            }
-        }
     }
 }
 
 extension PortalViewController: UITableViewDataSource, UITableViewDelegate {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return currencyArray.count
+        return APIManager.shared.groupedAllCurrencyList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellID = "portalCurrencyCell"
         let cell = tableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath) as! PortalCurrencyCell
-        let section = currencyArray[indexPath.section]
-        let arrContext = section.countries[indexPath.row].components(separatedBy: ",")
-        if arrContext.count == 2 {
-            cell.abbr.text = arrContext[1]
-            cell.currencyName.text = arrContext[0]
-            let img = UIImage(named: "\(String(cell.abbr.text!.prefix(3).lowercased())).png") ?? UIImage(named: "unknown.png")
-            cell.flag.image = img
-            cell.check.image = selectedArray.contains("\(cell.currencyName.text!),\(String(describing: cell.abbr.text!))") ? UIImage(named: "checked.png") : UIImage(named: "unchecked.png")
-        }
+        let elem = APIManager.shared.groupedAllCurrencyList[indexPath.section].countries[indexPath.row]
+        cell.abbr.text = elem.abbr
+        cell.currencyName.text = elem.currencyName
+        let img = UIImage(named: "\(elem.abbr.lowercased()).png") ?? UIImage(named: "unknown.png")
+        cell.flag.image = img
+        cell.check.image = elem.selected ? UIImage(named: "checked.png") : UIImage(named: "unchecked.png")
         cell.selectionStyle = .none
         return cell
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return currencyArray[section].countries.count
+        return APIManager.shared.groupedAllCurrencyList[section].countries.count
     }
     
     func sectionIndexTitles(for tableView: UITableView) -> [String]? {
-        return currencyArray.map{$0.alphabet}
+        return APIManager.shared.groupedAllCurrencyList.map{$0.alphabet}
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return currencyArray[section].alphabet
+        return APIManager.shared.groupedAllCurrencyList[section].alphabet
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let selectedCurrency = currencyArray[indexPath.section].countries[indexPath.row]
-        if selectedArray.contains(selectedCurrency) {
-            if let index = selectedArray.firstIndex(where: { $0 == selectedCurrency }) {
-                selectedArray.remove(at: index)
-            }
-        } else {
-            selectedArray.append(selectedCurrency)
-        }
+        let selectedCurrency = APIManager.shared.groupedAllCurrencyList[indexPath.section].countries[indexPath.row]
+        APIManager.shared.didSelectCurrency(section:indexPath.section, entity: selectedCurrency)
         self.portalTable.reloadSections([indexPath.section], with: .none)
-        self.delegate?.didSelectCurrency(array: selectedArray, timestamp: Date())
+        self.delegate?.didSelectCurrency(array: [], timestamp: Date())
     }
 }
 
