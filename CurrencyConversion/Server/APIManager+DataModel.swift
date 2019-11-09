@@ -135,7 +135,11 @@ extension APIManager {
             _ = fetchResult.map({
                 $0.selected = ($0.selected) ? false : true
             })
-            // cache data
+            // cached data: allCurrencyList
+            if let index = allCurrencyList.firstIndex(where: { $0.abbr == entity.abbr }) {
+                allCurrencyList[index].selected = entity.selected ? false : true
+            }
+            // cache data: selectedCurrency
             if entity.selected {
                 if let index = selectedCurrencyList.firstIndex(where: { $0.abbr == entity.abbr }) {
                     selectedCurrencyList.remove(at: index)
@@ -143,16 +147,14 @@ extension APIManager {
             } else {
                 selectedCurrencyList.append(entity)
             }
-
+            // cache data: groupedAllCurrencyList
             if let index = groupedAllCurrencyList[section].countries.firstIndex(where: { $0.abbr == entity.abbr }) {
                 var copy = groupedAllCurrencyList[section].countries[index]
                 copy.selected = !entity.selected
                 groupedAllCurrencyList[section].countries.remove(at: index)
                 groupedAllCurrencyList[section].countries.insert(copy, at: index)
             }
-            if let index = allCurrencyList.firstIndex(where: { $0.abbr == entity.abbr }) {
-                allCurrencyList[index].selected = entity.selected ? false : true
-            }
+            try context.save()
         } catch {
             print("selection failed:\(error), \(error.localizedDescription)")
         }
