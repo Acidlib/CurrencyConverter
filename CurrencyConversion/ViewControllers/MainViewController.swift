@@ -47,7 +47,7 @@ class MainViewController: BaseViewController {
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
         dateFormatter.timeZone = TimeZone.current
         let dateString = dateFormatter.string(from: date)
-        self.timestamp.text = "last updated:\n \(dateString)"
+        self.timestamp.text = "last updated date:\n \(dateString)"
     }
 
     func loadPortalMenu() {
