@@ -43,11 +43,7 @@ extension APIManager {
                     }
                 })
             }
-            let groupedList = Dictionary(grouping: allCurrencyList, by: { $0.currencyName.prefix(1) })
-            let keys = groupedList.keys.sorted()
-            groupedAllCurrencyList = keys.map({
-                Section(alphabet: String($0), countries: groupedList[$0]!)
-            })
+            loadGroupedArray()
             loadSelectedArray()
         } catch let error {
             print("fetch failed:\(error), \(error.localizedDescription)")
@@ -97,11 +93,7 @@ extension APIManager {
             })
 
             // temp: should be optimized (using CoreData notify rather than cached array):
-            let groupedList = Dictionary(grouping: allCurrencyList, by: { $0.currencyName.prefix(1) })
-            let keys = groupedList.keys.sorted()
-            groupedAllCurrencyList = keys.map({
-                Section(alphabet: String($0), countries: groupedList[$0]!)
-            })
+            loadGroupedArray()
             loadSelectedArray()
 
             // finished data arrangement, notify
@@ -112,6 +104,14 @@ extension APIManager {
         }
     }
 
+    func loadGroupedArray() {
+        let groupedList = Dictionary(grouping: allCurrencyList, by: { $0.currencyName.prefix(1) })
+        let keys = groupedList.keys.sorted()
+        groupedAllCurrencyList = keys.map({
+            Section(alphabet: String($0), countries: groupedList[$0]!)
+        })
+    }
+    
     func loadSelectedArray() {
         let fetchRequest = NSFetchRequest<CurrencyRateEntity>(entityName: "CurrencyRateEntity")
         fetchRequest.predicate = NSPredicate(format: "selected == %d", true)
