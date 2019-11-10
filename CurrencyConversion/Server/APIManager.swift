@@ -25,7 +25,7 @@ class APIManager: APIManagerProtocol {
     private let container: NSPersistentContainer
     var context: NSManagedObjectContext
     var allCurrencyList: [CurrencyRateEntity.type] = []
-    
+
     var selectedCurrencyList: [CurrencyRateEntity.type] = []
     var groupedAllCurrencyList: [Section] = []
 
