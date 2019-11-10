@@ -43,7 +43,7 @@ extension APIManager {
                 if (Date().timeIntervalSince1970 - CurreuncyRateUserDefault.lastRefreshed().timeIntervalSince1970) > 12*60*60 {
                     self.requestCurrenctRate()
                 }
-                
+
                 _ = fetchedArray.map({
                     if $0.abbr != nil {
                         allCurrencyList.append(CurrencyRateEntity.type(rate: $0.rate, timestamp: $0.timestamp, abbr: $0.abbr!, currencyName: $0.currencyName!, selected: $0.selected))
@@ -63,7 +63,7 @@ extension APIManager {
             if result.success {
                 // update last refresh time
                 CurreuncyRateUserDefault.setLastRefresh(time: Date())
-                
+
                 // handle data
                 if let dict = result.data as? [String: Any],
                     let timestamp = dict["timestamp"] as? TimeInterval,
