@@ -50,7 +50,7 @@ extension APIManager {
         }
     }
 
-    func requestCurrenctRate() {
+    func requestCurrenctRate(_ completion: ((Bool) -> Void)?=nil) {
         let callObj = CHAPICallObject(.post, "http://www.apilayer.net/api/live?access_key=\(currencylayeraAiKey)", [:])
         self.makeApiCall(callObj, { [weak self] result in
             if result.success {
@@ -58,10 +58,13 @@ extension APIManager {
                     let timestamp = dict["timestamp"] as? TimeInterval,
                     let result = dict["quotes"] as? [String: Double] {
                     self?.saveCurrencyRateToDatamodel(dictionary: result, timestamp: timestamp)
+                    completion?(true)
                 } else {
+                    completion?(false)
                     print("Ooops, parsing api result failed")
                 }
             } else {
+                completion?(false)
                 print("Ooops, API request failed: \(result.errorDescription ?? "unknwon error")")
             }
         })
