@@ -24,7 +24,6 @@
 		5F31851E2376A9E300B473C1 /* APIManager+DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F31851D2376A9E300B473C1 /* APIManager+DataModel.swift */; };
 		5F3185232376AC0800B473C1 /* CurrencyRateEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F3185222376AC0800B473C1 /* CurrencyRateEntity.swift */; };
 		5F31852D237845A000B473C1 /* CurreuncyRateUserDefault.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F31852C237845A000B473C1 /* CurreuncyRateUserDefault.swift */; };
-		5F31852F23784D4A00B473C1 /* Operations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F31852E23784D4A00B473C1 /* Operations.swift */; };
 		5F7C709023756EB800FBFBB0 /* currency_abbr.txt in Resources */ = {isa = PBXBuildFile; fileRef = 5F7C708F23756EB800FBFBB0 /* currency_abbr.txt */; };
 		5FDC73B12376860A00BF3350 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FDC73B02376860A00BF3350 /* BaseViewController.swift */; };
 /* End PBXBuildFile section */
@@ -70,7 +69,6 @@
 		5F31851D2376A9E300B473C1 /* APIManager+DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "APIManager+DataModel.swift"; sourceTree = "<group>"; };
 		5F3185222376AC0800B473C1 /* CurrencyRateEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrencyRateEntity.swift; sourceTree = "<group>"; };
 		5F31852C237845A000B473C1 /* CurreuncyRateUserDefault.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurreuncyRateUserDefault.swift; sourceTree = "<group>"; };
-		5F31852E23784D4A00B473C1 /* Operations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Operations.swift; sourceTree = "<group>"; };
 		5F7C708F23756EB800FBFBB0 /* currency_abbr.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = currency_abbr.txt; sourceTree = "<group>"; };
 		5FDC73B02376860A00BF3350 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -169,7 +167,6 @@
 		5F0E74B523750E5C00F423C6 /* Server */ = {
 			isa = PBXGroup;
 			children = (
-				5F31852E23784D4A00B473C1 /* Operations.swift */,
 				5F0E74BA237510B800F423C6 /* APIManagerProtocol.swift */,
 				5F0E74B323750E5200F423C6 /* APIManager.swift */,
 				5F31851D2376A9E300B473C1 /* APIManager+DataModel.swift */,
@@ -331,7 +328,6 @@
 				5F31851C2376A8B200B473C1 /* CurrencyDataModel.xcdatamodeld in Sources */,
 				5F0E74C123751BE500F423C6 /* MainViewController.swift in Sources */,
 				5F0E74B423750E5200F423C6 /* APIManager.swift in Sources */,
-				5F31852F23784D4A00B473C1 /* Operations.swift in Sources */,
 				5F3185232376AC0800B473C1 /* CurrencyRateEntity.swift in Sources */,
 				5F31852D237845A000B473C1 /* CurreuncyRateUserDefault.swift in Sources */,
 				5F0E748223750D9600F423C6 /* AppDelegate.swift in Sources */,
