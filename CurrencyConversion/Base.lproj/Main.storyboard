@@ -150,17 +150,17 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="QZt-oY-Yf0">
-                                                    <rect key="frame" x="336" y="-3.5" width="18" height="50.5"/>
+                                                    <rect key="frame" x="336" y="13" width="18" height="18"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" relation="lessThanOrEqual" constant="35" id="9MV-6b-KZ1"/>
+                                                        <constraint firstAttribute="height" constant="18" id="9MV-6b-KZ1"/>
                                                         <constraint firstAttribute="width" constant="18" id="QGj-3v-adZ"/>
                                                     </constraints>
                                                 </imageView>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="uhO-5q-6tY">
-                                                    <rect key="frame" x="20" y="4.5" width="30" height="35"/>
+                                                    <rect key="frame" x="20" y="7" width="30" height="30"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="30" id="cwk-QI-Rtu"/>
-                                                        <constraint firstAttribute="height" constant="35" id="cz4-f6-UWf"/>
+                                                        <constraint firstAttribute="height" constant="30" id="cz4-f6-UWf"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Country Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j4T-pd-yOU">
@@ -179,7 +179,6 @@
                                                 <constraint firstItem="QZt-oY-Yf0" firstAttribute="centerY" secondItem="WCd-e2-1b7" secondAttribute="centerY" id="osL-M1-VIT"/>
                                                 <constraint firstItem="uhO-5q-6tY" firstAttribute="centerY" secondItem="WCd-e2-1b7" secondAttribute="centerY" id="tEa-cH-iZx"/>
                                                 <constraint firstAttribute="trailing" secondItem="QZt-oY-Yf0" secondAttribute="trailing" constant="20" id="vIG-WR-iDu"/>
-                                                <constraint firstItem="QZt-oY-Yf0" firstAttribute="top" secondItem="WCd-e2-1b7" secondAttribute="topMargin" constant="-14.5" id="xDq-ym-oFg"/>
                                                 <constraint firstItem="j4T-pd-yOU" firstAttribute="centerY" secondItem="Rkm-yP-zKT" secondAttribute="centerY" id="yT9-GN-0nI"/>
                                             </constraints>
                                         </tableViewCellContentView>
