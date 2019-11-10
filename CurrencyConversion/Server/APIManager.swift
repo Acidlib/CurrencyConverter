@@ -22,10 +22,11 @@ class APIManager: APIManagerProtocol {
         return model
     }()
 
-    let container: NSPersistentContainer
+    private let container: NSPersistentContainer
     var context: NSManagedObjectContext
-    var selectedCurrencyList: [CurrencyRateEntity.type] = []
     var allCurrencyList: [CurrencyRateEntity.type] = []
+    
+    var selectedCurrencyList: [CurrencyRateEntity.type] = []
     var groupedAllCurrencyList: [Section] = []
 
     init() {
