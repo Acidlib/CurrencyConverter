@@ -48,7 +48,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         do {
             try BGTaskScheduler.shared.submit(request)
         } catch {
-            print("Could not schedule database cleaning: \(error)")
+            print("Could not schedule schedule refresh: \(error)")
         }
     }
 
