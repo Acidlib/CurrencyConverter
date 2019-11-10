@@ -27,7 +27,6 @@ class APIManager: APIManagerProtocol {
     var selectedCurrencyList: [CurrencyRateEntity.type] = []
     var allCurrencyList: [CurrencyRateEntity.type] = []
     var groupedAllCurrencyList: [Section] = []
-    var abbrDictionary: [String: String] = [:]
 
     init() {
         container = NSPersistentContainer(name: APIManager.coreDataStoreName, managedObjectModel: APIManager.coreDataModel)
@@ -37,7 +36,6 @@ class APIManager: APIManagerProtocol {
             }
         })
         context = container.newBackgroundContext()
-        self.loadAbbrDictionary()
     }
 
     func makeApiCall(_ input: CHAPICallObject, _ completion: @escaping (CHApiResult) -> Void) {

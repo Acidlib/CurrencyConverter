@@ -9,8 +9,9 @@
 import CoreData
 
 extension APIManager {
-    func loadAbbrDictionary() {
+    func loadAbbrDictionary() -> [String: String] {
         let path = Bundle.main.path(forResource: "currency_abbr", ofType: "txt")
+        var dict: [String: String] = [:]
         if let path = path {
             var contents: String
             do {
@@ -19,15 +20,14 @@ extension APIManager {
                 contents = ""
             }
             let array = contents.components(separatedBy: "\n")
-            var dict: [String: String] = [:]
             _ = array.map({
                 let arrContext = $0.components(separatedBy: ",")
                 if arrContext.count == 2 {
                     dict[arrContext[1]] = arrContext[0]
                 }
             })
-            abbrDictionary = dict
         }
+        return dict
     }
 
     func loadLocalCurrencyRate() {
@@ -73,6 +73,7 @@ extension APIManager {
 
     func saveCurrencyRateToDatamodel(dictionary: [String: Double], timestamp: TimeInterval) {
         do {
+            let abbrDictionary = loadAbbrDictionary()
             _ = try dictionary.map({ (arg0) in
                 let (key, value) = arg0
                 let abbr = String(key.suffix(3))
