@@ -153,7 +153,7 @@ class MainViewController: BaseViewController {
             if indexPaths?.count ?? 0 > idx {
                 let obj = APIManager.shared.selectedCurrencyList[idx]
                 textField.placeholder = String(format: "%.02f", obj.rate)
-                textField.text = String(format: "%.02f", obj.rate)
+                textField.text = ""
                 indexPaths?.remove(at: idx)
                 ratio = 1.0
                 self.mainTable.reloadRows(at: indexPaths!, with: .none)
