@@ -19,6 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 self.handleAppRefresh(task: bgTask)
             }
         }
+        scheduleAppRefresh()
         return true
     }
 
@@ -27,12 +28,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         task.expirationHandler = {
             APIManager.shared.requestCurrenctRate()
             print("Did Excute Background Fetch")
+            CurreuncyRateUserDefault.setLastRefresh(time: Date())
         }
         task.setTaskCompleted(success: true)
-    }
-
-    func applicationDidEnterBackground(_ application: UIApplication) {
-        scheduleAppRefresh()
     }
 
     func scheduleAppRefresh() {
