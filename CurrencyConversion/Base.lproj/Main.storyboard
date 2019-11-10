@@ -101,11 +101,23 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4y1-i7-822">
+                                <rect key="frame" x="244" y="84" width="150" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="GST-Pd-QL0"/>
+                                    <constraint firstAttribute="width" constant="150" id="Ubn-dm-Ywd"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                <color key="textColor" systemColor="opaqueSeparatorColor" red="0.77647058820000003" green="0.77647058820000003" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="4y1-i7-822" firstAttribute="bottom" secondItem="P5q-lX-7tU" secondAttribute="top" id="Hbt-tR-bGy"/>
                             <constraint firstItem="P5q-lX-7tU" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" constant="-20" id="L4x-L6-YB6"/>
                             <constraint firstItem="P5q-lX-7tU" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="QXN-mD-wrj"/>
+                            <constraint firstItem="4y1-i7-822" firstAttribute="trailing" secondItem="P5q-lX-7tU" secondAttribute="trailing" id="WCr-VB-1V9"/>
                             <constraint firstItem="vs5-Sf-dR5" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="nck-bH-dni"/>
                             <constraint firstItem="vs5-Sf-dR5" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="quN-ro-W9u"/>
                             <constraint firstItem="P5q-lX-7tU" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="80" id="rgY-1n-TeS"/>
@@ -115,6 +127,7 @@
                     </view>
                     <connections>
                         <outlet property="mainTable" destination="P5q-lX-7tU" id="Ra8-Xh-oPO"/>
+                        <outlet property="timestamp" destination="4y1-i7-822" id="sRr-3j-MvH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>

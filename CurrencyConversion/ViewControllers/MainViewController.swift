@@ -16,13 +16,15 @@ class MainViewController: BaseViewController {
     var touchPoint: CGPoint = CGPoint()
     var preTouchPoint: CGPoint = CGPoint()
     var ratio: Double = 1.0
-
+    @IBOutlet weak var timestamp: UILabel!
+    
     @IBOutlet weak var mainTable: UITableView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.loadPortalMenu()
         self.loadMainTable()
+        self.updateTimeLabel()
         self.view.isUserInteractionEnabled = true
         panGesture = UIPanGestureRecognizer(target: self, action: #selector(handlePan(gr:)))
         self.view.addGestureRecognizer(panGesture)
@@ -31,7 +33,21 @@ class MainViewController: BaseViewController {
     override func rateDidUpdated() {
         DispatchQueue.main.async {
             self.mainTable.reloadData()
+            self.updateTimeLabel()
         }
+    }
+    
+    func updateTimeLabel() {
+        guard APIManager.shared.allCurrencyList.count > 0 else { return }
+        
+        let tInterval = APIManager.shared.allCurrencyList[0].timestamp
+        let date = Date(timeIntervalSince1970: tInterval)
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        dateFormatter.timeZone = TimeZone.current
+        let dateString = dateFormatter.string(from: date)
+        self.timestamp.text = "last updated:\n \(dateString)"
     }
 
     func loadPortalMenu() {
