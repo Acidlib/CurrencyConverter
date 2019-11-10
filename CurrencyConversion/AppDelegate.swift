@@ -29,29 +29,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         task.setTaskCompleted(success: true)
     }
-    
+
     func applicationDidEnterBackground(_ application: UIApplication) {
         scheduleAppRefresh()
     }
-    
+
     func scheduleAppRefresh() {
         let lastRefreshedTime = CurreuncyRateUserDefault.lastRefreshed()
         let now = Date()
         let minDuration = TimeInterval(12 * 60 * 60) // query per half day
 
         guard now > (lastRefreshedTime + minDuration) else { return }
-        
+
         let request = BGProcessingTaskRequest(identifier: "co.yiling.CurrencyConversion.currencyRateUpdate")
         request.requiresNetworkConnectivity = true
         request.requiresExternalPower = false
-        
+
         do {
             try BGTaskScheduler.shared.submit(request)
         } catch {
             print("Could not schedule database cleaning: \(error)")
         }
     }
-    
+
     func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
         // Called when a new scene session is being created.
         // Use this method to select a configuration to create the new scene with.

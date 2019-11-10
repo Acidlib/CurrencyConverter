@@ -114,7 +114,7 @@ extension APIManager {
             Section(alphabet: String($0), countries: groupedList[$0]!)
         })
     }
-    
+
     func loadSelectedArray() {
         let fetchRequest = NSFetchRequest<CurrencyRateEntity>(entityName: "CurrencyRateEntity")
         fetchRequest.predicate = NSPredicate(format: "selected == %d", true)
