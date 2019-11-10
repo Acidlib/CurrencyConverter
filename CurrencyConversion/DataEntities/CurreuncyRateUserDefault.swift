@@ -12,7 +12,11 @@ class CurreuncyRateUserDefault {
     private static let lastRefreshedKey = "lastRefreshed"
 
     class func lastRefreshed() -> Date {
-        return UserDefaults.standard.object(forKey: CurreuncyRateUserDefault.lastRefreshedKey) as? Date ?? Date(timeIntervalSince1970: 0)
+        if UserDefaults.standard.object(forKey: CurreuncyRateUserDefault.lastRefreshedKey) == nil {
+            return Date(timeIntervalSince1970: 0)
+        } else {
+            return UserDefaults.standard.object(forKey: CurreuncyRateUserDefault.lastRefreshedKey) as! Date
+        }
     }
 
     class func setLastRefresh(time: Date) {

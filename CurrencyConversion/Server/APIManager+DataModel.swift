@@ -37,6 +37,13 @@ extension APIManager {
             if fetchedArray.count == 0 {
                 self.requestCurrenctRate()
             } else {
+                // Sync Currency Again:
+                // request currency again if last refreshed time is beyond half of day
+                // in case background refresh is turned off or not working
+                if (Date().timeIntervalSince1970 - CurreuncyRateUserDefault.lastRefreshed().timeIntervalSince1970) > 12*60*60 {
+                    self.requestCurrenctRate()
+                }
+                
                 _ = fetchedArray.map({
                     if $0.abbr != nil {
                         allCurrencyList.append(CurrencyRateEntity.type(rate: $0.rate, timestamp: $0.timestamp, abbr: $0.abbr!, currencyName: $0.currencyName!, selected: $0.selected))
@@ -54,6 +61,10 @@ extension APIManager {
         let callObj = CHAPICallObject(.post, "http://www.apilayer.net/api/live?access_key=\(currencylayeraAiKey)", [:])
         self.makeApiCall(callObj, { [weak self] result in
             if result.success {
+                // update last refresh time
+                CurreuncyRateUserDefault.setLastRefresh(time: Date())
+                
+                // handle data
                 if let dict = result.data as? [String: Any],
                     let timestamp = dict["timestamp"] as? TimeInterval,
                     let result = dict["quotes"] as? [String: Double] {
@@ -76,21 +87,25 @@ extension APIManager {
             _ = try dictionary.map({ (arg0) in
                 let (key, value) = arg0
                 let abbr = String(key.suffix(3))
-                let request = NSFetchRequest<CurrencyRateEntity>(entityName: "CurrencyRateEntity")
-                request.predicate = NSPredicate(format: "abbr == %@", abbr)
-                let existedData = try context.fetch(request)
-                if existedData.count > 0 {
-                    existedData.forEach({
-                        $0.rate = value
-                    })
-                } else {
-                    // create default selection
-                    let defaultSelection = ["USD", "EUR", "JPY", "GBP"]
-                    let selected = defaultSelection.contains(abbr)
-                    if let cn = abbrDictionary[abbr] {
-                        let entityType = CurrencyRateEntity.type(rate: value, timestamp: Double(timestamp), abbr: abbr, currencyName: cn, selected: selected)
-                        _ = CurrencyRateEntity(entityType, context: context)
-                        allCurrencyList.append(entityType)
+                // filter out missing country name currency
+                if abbrDictionary[abbr] != nil {
+                    let request = NSFetchRequest<CurrencyRateEntity>(entityName: "CurrencyRateEntity")
+                    request.predicate = NSPredicate(format: "abbr == %@", abbr)
+                    let existedData = try context.fetch(request)
+                    if existedData.count > 0 {
+                        existedData.forEach({
+                            $0.rate = value
+                            $0.timestamp = timestamp
+                        })
+                    } else {
+                        // create default selection
+                        let defaultSelection = ["USD", "EUR", "JPY", "GBP"]
+                        let selected = defaultSelection.contains(abbr)
+                        if let cn = abbrDictionary[abbr] {
+                            let entityType = CurrencyRateEntity.type(rate: value, timestamp: Double(timestamp), abbr: abbr, currencyName: cn, selected: selected)
+                            _ = CurrencyRateEntity(entityType, context: context)
+                            allCurrencyList.append(entityType)
+                        }
                     }
                 }
             })
@@ -119,12 +134,14 @@ extension APIManager {
         let fetchRequest = NSFetchRequest<CurrencyRateEntity>(entityName: "CurrencyRateEntity")
         fetchRequest.predicate = NSPredicate(format: "selected == %d", true)
         do {
+            var selectedArr: [CurrencyRateEntity.type] = []
             let fetchResult = try context.fetch(fetchRequest)
             _ = fetchResult.map({
                 if $0.abbr != nil {
-                    selectedCurrencyList.append(CurrencyRateEntity.type(rate: $0.rate, timestamp: $0.timestamp, abbr: $0.abbr!, currencyName: $0.currencyName!, selected: $0.selected))
+                    selectedArr.append(CurrencyRateEntity.type(rate: $0.rate, timestamp: $0.timestamp, abbr: $0.abbr!, currencyName: $0.currencyName!, selected: $0.selected))
                 }
             })
+            selectedCurrencyList = selectedArr
         } catch let error {
             print("fetch failed:\(error), \(error.localizedDescription)")
         }
